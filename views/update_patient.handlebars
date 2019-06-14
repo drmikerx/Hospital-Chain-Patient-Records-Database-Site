@@ -1,0 +1,129 @@
+<div id="outerWrapper">
+        <ul class="navbar">
+            <li class="navSquare"><a href="/" class="navlink activePage">Home</a></li>
+            <li class="navSquare"><a href="/department" class="navlink">Department Interactions</a></li>
+            <li class="navSquare"><a href="/patient" class="navlink">Patient Interactions</a></li>
+            <li class="navSquare"><a href="/branch" class="navlink">Branch Interactions</a></li>
+            <li class="navSquare"><a href="/doctor" class="navlink">Doctor Interactions</a></li>
+            <li class="navSquare"><a href="/doctor_branch" class="navlink">Doctor/Branch Interactions</a></li>
+            <li class="navSquare"><a href="/doctor_department" class="navlink">Doctor/Department Interactions</a></li>
+        </ul>
+    </div>
+<h1 class="pageTitle">Update Patient: {{patient.Fname}} {{patient.Lname}}</h1>
+<fieldset>
+<form id="update_patient" action="/patient" method="post">
+        First Name: 
+        <input type="text" name="Fname" value="{{patient.Fname}}">
+        <br>
+        Last Name: 
+        <input type="text" name="Lname" value="{{patient.Lname}}">
+        <br>
+        Gender:
+        <select name="Gender" id="gender-dropdown">
+                {{#if female}}
+                <option value="F">Female</option>
+                <option value="M">Male</option>
+                {{else}}
+                <option value="M">Male</option>
+                <option value="F">Female</option>
+                {{/if}}
+        </select>
+        <br>
+        Birthdate:
+        <input type="date" name="Birthdate" value="{{patient.Birthdate}}">
+        <br>
+        Room:
+        <input type="number" name="Room" value="{{patient.Room}}">
+        <br>
+        Doctor:
+        <select name="Doctor" id="doctor-dropdown">
+                {{#each doctors}}
+                <option value="{{Id}}">{{DoctorName}}</option>
+                {{/each}}
+        </select>
+        <br>
+        Branch:
+        <select name="Branch" id="branch-dropdown">
+                {{#each branches}}
+                <option value="{{Id}}">{{Name}}</option>
+                {{/each}}
+        </select>
+        <br>
+</form>
+        <button onclick="updatePatient({{patient.id}})" style="margin-top:20px">Update Patient</button>
+</fieldset>
+
+<script defer>selectGender({{patient.Gender}});</script>
+<script defer>selectDoctor({{patient.Doctor}});</script>
+<script defer>selectBranch({{patient.Branch}});</script>
+<!-- 
+<div id="outerWrapper">
+        <ul class="navbar">
+            <li class="navSquare"><a href="/" class="navlink activePage">Home</a></li>
+            <li class="navSquare"><a href="/department" class="navlink">Department Interactions</a></li>
+            <li class="navSquare"><a href="/patient" class="navlink">Patient Interactions</a></li>
+            <li class="navSquare"><a href="/branch" class="navlink">Branch Interactions</a></li>
+            <li class="navSquare"><a href="/doctor" class="navlink">Doctor Interactions</a></li>
+            <li class="navSquare"><a href="/doctor_branch" class="navlink">Doctor/Branch Interactions</a></li>
+            <li class="navSquare"><a href="/doctor_department" class="navlink">Doctor/Department Interactions</a></li>
+        </ul>
+</div>
+        <h1 class="pageTitle">Update Patient Form</h1>
+        <h3>The patient selected currently has this information:</h3>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Gender</th>
+                    <th>Date of Birth</th>
+                    <th>Room Number</th>
+                    <th>Doctor</th>
+                    <th>Branch</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{Fname}}</td>
+                    <td>{{Lname}}</td>
+                    <td>{{Gender}}</td>
+                    <td>{{Birthdate}}</td>
+                    <td>{{Room}}</td>
+                    <td>{{Doctor}}</td>
+                    <td>{{Branch}}</td>
+            </tbody>
+        </table>
+        <br />
+        <h3>Please enter the updated information for this patient below:</h3>
+        <form id="addpatient" action="http://web.engr.oregonstate.edu/~zhangluy/tools/class-content/form_tests/check_request.php" method="post">
+            First Name:
+            <input name="Fname" type="text" />
+            <br />
+            Last Name:
+            <input name="Lname" type="text" />
+            <br />
+            Gender:
+            <select name="Gender">
+                <option value="M">Male</option>
+                <option value="F">Female</option>
+            </select>
+            <br />
+            Date of Birth:
+            <input name="Birthdate" type="date" />
+            <br />
+            Room Number:
+            <input name="Room" type="number" />
+            <br />
+            Doctor:
+            <select name="Doctor">
+                <option value="{{Id}}">{{name}}</option>
+            </select>
+            <br />
+            Branch:
+            <select name="Branch">
+                <option value="{{Id}}">{{name}}</option>
+            </select>
+            <br />
+            <input value="Confirm Update" type="submit" />
+        </form>
+-->

@@ -1,0 +1,91 @@
+<div id="outerWrapper">
+        <ul class="navbar">
+            <li class="navSquare"><a href="/" class="navlink activePage">Home</a></li>
+            <li class="navSquare"><a href="/department" class="navlink">Department Interactions</a></li>
+            <li class="navSquare"><a href="/patient" class="navlink">Patient Interactions</a></li>
+            <li class="navSquare"><a href="/branch" class="navlink">Branch Interactions</a></li>
+            <li class="navSquare"><a href="/doctor" class="navlink">Doctor Interactions</a></li>
+            <li class="navSquare"><a href="/doctor_branch" class="navlink">Doctor/Branch Interactions</a></li>
+            <li class="navSquare"><a href="/doctor_department" class="navlink">Doctor/Department Interactions</a></li>
+        </ul>
+</div>
+        <h1 class="pageTitle">Patient Entity Interactions</h1>
+      <fieldset>
+        <h3>Add a new patient:</h3>
+        <form id="addpatient" action="/patient" method="post">
+            First Name:
+            <input name="Fname" type="text" />
+            <br />
+            Last Name:
+            <input name="Lname" type="text" />
+            <br />
+            Gender:
+            <select name="Gender">
+                <option value="M">Male</option>
+                <option value="F">Female</option>
+            </select>
+            <br />
+            Date of Birth:
+            <input name="Birthdate" type="date" />
+            <br />
+            Room Number:
+            <input name="Room" type="number" />
+            <br />
+            Doctor:
+            <select name="Doctor">
+                {{#each doctors}}
+                <option value="{{Id}}">{{DoctorName}}</option>
+                {{/each}}
+            </select>
+            <br />
+            Branch:
+            <select name="Branch">
+                {{#each branches}}
+                <option value="{{Id}}">{{Name}}</option>
+                {{/each}}
+            </select>
+            <br />
+            <input value="Submit" type="submit" style="margin-top:20px" />
+        </form>
+      </fieldset>
+        <br />
+      <fieldset>
+        <form id='search_patients' action='' method=''>
+            <label>Search for patients by last name:</label>
+            <input required id='last_name_to_search' type='text' name='last_name_to_search' value='' placeholder="Part or All of Last Name">
+            <input type="button" value="Search" onclick="searchPatientsByLastName()">
+        </form>
+      </fieldset>
+        <h3 class="sectionHeader">Current patients:</h3>
+        <table border="1" class="resultTable">
+            <thead>
+                <tr class="tableHeadRow">
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Gender</th>
+                    <th>Date of Birth</th>
+                    <th>Room Number</th>
+                    <th>Doctor</th>
+                    <th>Branch</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each patients}}
+                <tr class="displayTableRow">
+                    <td>{{FirstName}}</td>
+                    <td>{{LastName}}</td>
+                    <td>{{Gender}}</td>
+                    <td>{{DateofBirth}}</td>
+                    <td>{{RoomNumber}}</td>
+                    <td>{{Doctor}}</td>                    
+                    <td>{{Branch}}</td>                                    
+                    <td>
+                        <button onclick="deletePatient({{Id}})">Delete</button>
+                    </td>
+                    <td>
+                        <a href="/patient/{{Id}}">Update</a>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>

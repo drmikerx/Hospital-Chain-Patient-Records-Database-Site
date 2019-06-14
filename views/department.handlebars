@@ -1,0 +1,44 @@
+<div id="outerWrapper">
+        <ul class="navbar">
+            <li class="navSquare"><a href="/" class="navlink activePage">Home</a></li>
+            <li class="navSquare"><a href="/department" class="navlink">Department Interactions</a></li>
+            <li class="navSquare"><a href="/patient" class="navlink">Patient Interactions</a></li>
+            <li class="navSquare"><a href="/branch" class="navlink">Branch Interactions</a></li>
+            <li class="navSquare"><a href="/doctor" class="navlink">Doctor Interactions</a></li>
+            <li class="navSquare"><a href="/doctor_branch" class="navlink">Doctor/Branch Interactions</a></li>
+            <li class="navSquare"><a href="/doctor_department" class="navlink">Doctor/Department Interactions</a></li>
+        </ul>
+</div>
+    <h1 class="pageTitle">Department Entity Interactions</h1>
+  <fieldset>
+    <h3>Add new department:</h3>
+    <form id="adddepartment" action="/department" method="post">
+        Department Title:
+        <input name="Title" type="text" />
+        <br />
+        <input value="Submit" type="submit" style="margin-top:20px" />
+    </form>
+  </fieldset>
+    <br />
+    <h3 class="sectionHeader">Current Departments:</h3>
+    <table border="1" class="resultTable">
+        <thead>
+            <tr class="tableHeadRow">
+                <th>Title</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each departments}}
+            <tr class="displayTableRow">
+                <td>{{Title}}</td>
+                <!--<td>
+                    <button onclick="deleteDepartment({{Id}})">Delete</button>
+                </td>
+                <td>
+                    <a href="/department/{{Id}}">Update</a>
+                </td>
+                    -->
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>

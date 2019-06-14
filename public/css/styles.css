@@ -1,0 +1,85 @@
+body {
+  background-color:#DDFEFC
+}
+
+.displayTableRow:nth-child(even) {
+  /*background-color:#B2FEFA */
+  /*background-color:#071C5C; */
+  background-color:teal;
+  color:white;
+}
+
+.displayTableRow:nth-child(even) a {
+  /*background-color:#B2FEFA */
+  color:white;
+}
+
+.displayTableRow:nth-child(odd) {
+  background-color:#B7E1C6
+}
+
+.displayTableRow:hover{
+  background-color:#FEA03A;
+  color:black;
+}
+
+fieldset {
+  text-align: center;
+}
+
+.navbar {
+    list-style-type: none;
+    width: 1200px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.navlink {
+    display: inline-block;
+    padding: 8px;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    color: white;
+}
+
+.navlink:hover {
+    /*background-color: #0AAE18 */
+  background-color:#FEA03A
+}
+
+
+.navSquare {
+    float: left;
+    border-right: 1px solid #bbb;
+    border-left: 1px solid #bbb;
+}
+
+#outerWrapper {
+    width: 100%;
+    float: left;
+    background-color: #071C5C;
+    margin-bottom: 20px;
+}
+
+.pageTitle {
+  text-align: center;
+  /*font-family: 'Bree Serif', serif; */
+  font-family: 'Cinzel', serif;
+  font-size: 40px;
+}
+
+.resultTable {
+  margin: 0 auto;
+}
+
+.sectionHeader {
+  text-align: center;
+  font-family: 'Cinzel', serif;
+  font-size: 25px;
+}
+
+.tableHeadRow {
+  background-color:#071C5C;
+  color:white;
+}

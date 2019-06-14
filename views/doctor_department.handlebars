@@ -1,0 +1,53 @@
+<div id="outerWrapper">
+        <ul class="navbar">
+            <li class="navSquare"><a href="/" class="navlink activePage">Home</a></li>
+            <li class="navSquare"><a href="/department" class="navlink">Department Interactions</a></li>
+            <li class="navSquare"><a href="/patient" class="navlink">Patient Interactions</a></li>
+            <li class="navSquare"><a href="/branch" class="navlink">Branch Interactions</a></li>
+            <li class="navSquare"><a href="/doctor" class="navlink">Doctor Interactions</a></li>
+            <li class="navSquare"><a href="/doctor_branch" class="navlink">Doctor/Branch Interactions</a></li>
+            <li class="navSquare"><a href="/doctor_department" class="navlink">Doctor/Department Interactions</a></li>
+        </ul>
+</div>
+        <h1 class="pageTitle">Doctor/Department Relationship Interactions</h1>
+      <fieldset>
+        <h3>Add a new doctor/department relationship:</h3>
+        <form id="adddoctor_department" action="/doctor_department" method="post">
+            Doctor:
+            <select name="DocId">
+               {{#each doctors}}
+               <option value="{{Id}}">{{DoctorName}}</option>
+               {{/each}}
+            </select>
+            <br />
+            Department:
+            <select name="DepartId">
+                {{#each departments}}
+                <option value="{{Id}}">{{Department}}</option>
+                {{/each}}
+            </select>
+            <br />
+            <input value="Submit" type="submit" style="margin-top:20px" />
+        </form>
+      </fieldset>
+        <br />
+        <h3 class="sectionHeader">Current doctor/department associations:</h3>
+        <table border="1" class="resultTable">
+            <thead>
+                <tr class="tableHeadRow">
+                    <th>Doctor</th>
+                    <th>Department</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each docdepartments}}
+                <tr class="displayTableRow">
+                    <td>{{Doctor}}</td>
+                    <td>{{Department}}</td>
+                    <td>
+                        <button onclick="deleteDoctorDepartment({{DocId}},{{DepartId}})">Delete</button>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>

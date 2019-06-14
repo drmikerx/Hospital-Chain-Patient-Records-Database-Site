@@ -1,0 +1,54 @@
+<div id="outerWrapper">
+        <ul class="navbar">
+            <li class="navSquare"><a href="/" class="navlink activePage">Home</a></li>
+            <li class="navSquare"><a href="/department" class="navlink">Department Interactions</a></li>
+            <li class="navSquare"><a href="/patient" class="navlink">Patient Interactions</a></li>
+            <li class="navSquare"><a href="/branch" class="navlink">Branch Interactions</a></li>
+            <li class="navSquare"><a href="/doctor" class="navlink">Doctor Interactions</a></li>
+            <li class="navSquare"><a href="/doctor_branch" class="navlink">Doctor/Branch Interactions</a></li>
+            <li class="navSquare"><a href="/doctor_department" class="navlink">Doctor/Department Interactions</a></li>
+        </ul>
+</div>
+        <h1 class="pageTitle">Doctor Entity Interactions</h1>
+      <fieldset>
+        <h3>Add a new doctor:</h3>
+        <form id="adddoctor" action="/doctor" method="post">
+            First Name:
+            <input name="Fname" type="text" />
+            <br />
+            Last Name:
+            <input name="Lname" type="text" />
+            <br />
+            Medical License Number:
+            <input name="License" type="number" />
+            <br />
+            <input value="Submit" type="submit" style="margin-top:20px" />
+        </form>
+      </fieldset>
+        <br />
+        <h3 class="sectionHeader">Current doctors:</h3>
+        <table border="1" class="resultTable">
+            <thead>
+                <tr class="tableHeadRow">
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>License Number</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each doctors}}
+                <tr class="displayTableRow">
+                    <td>{{Fname}}</td>
+                    <td>{{Lname}}</td>
+                    <td>{{License}}</td>
+                    <!--<td>
+                    <button onclick="deleteDoctor({{Id}})">Delete</button>
+                </td>
+                <td>
+                    <a href="/doctor/{{Id}}">Update</a>
+                </td>
+                    -->
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>

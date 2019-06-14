@@ -1,0 +1,18 @@
+<!--This file was adapted from CS 340 Sample Web App by knightsamar on github -->
+
+<!doctype html>
+<html>
+<head>
+	<title>Hospital Database</title>
+	<link rel="stylesheet" href="/css/styles.css">
+	<link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    {{#each jsscripts}}
+    <script src="/static/{{this}}"></script>
+    {{/each}}
+</head>
+<body>
+	{{{body}}}
+</body>
+</html>
